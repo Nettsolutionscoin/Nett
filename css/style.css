@@ -849,8 +849,18 @@ h6 {
   background: #3395ff;
 }
 
-#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview:hover i,
-#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details:hover i {
+#portfolio
+  .portfolio-item
+  .portfolio-wrap
+  .portfolio-info
+  .link-preview:hover
+  i,
+#portfolio
+  .portfolio-item
+  .portfolio-wrap
+  .portfolio-info
+  .link-details:hover
+  i {
   color: #fff;
 }
 
@@ -1178,6 +1188,14 @@ h6 {
 #contact .form button[type="submit"]:hover {
   background: #0067d5;
   cursor: pointer;
+}
+
+#contact .map iframe {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  min-height: 400px;
 }
 
 /*--------------------------------------------------------------
