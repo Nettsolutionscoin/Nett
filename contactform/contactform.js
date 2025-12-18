@@ -1,8 +1,11 @@
 jQuery(document).ready(function ($) {
   "use strict";
 
+  console.log("contactform.js loaded");
+
   //Contact
   $("form.contactForm").submit(function () {
+    console.log("contactForm submit triggered");
     var f = $(this).find(".form-group"),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -112,11 +115,13 @@ jQuery(document).ready(function ($) {
     if (!action) {
       action = "contactform/contactform.php";
     }
+    console.log("Submitting via AJAX to", action, "payload:", str);
     $.ajax({
       type: "POST",
       url: action,
       data: str,
       success: function (msg) {
+        console.log("AJAX success:", msg);
         // show a visible Bootstrap-like alert above the form
         var $form = $(".contactForm");
         var $alert = $form.prev(".cf-alert");
@@ -148,6 +153,22 @@ jQuery(document).ready(function ($) {
           $("#sendmessage").removeClass("show");
           $("#errormessage").addClass("show").html(msg);
         }
+      },
+      error: function (xhr, status, error) {
+        console.error("AJAX error:", status, error, xhr.responseText);
+        var $form = $(".contactForm");
+        var $alert = $form.prev(".cf-alert");
+        if ($alert.length === 0) {
+          $alert = $('<div class="cf-alert" />').insertBefore($form);
+        }
+        $alert
+          .stop(true, true)
+          .hide()
+          .removeClass("alert-success alert-danger")
+          .addClass("alert-danger")
+          .html("<strong>AJAX Error:</strong> " + (xhr.responseText || status))
+          .fadeIn();
+        return false;
       },
     });
     return false;

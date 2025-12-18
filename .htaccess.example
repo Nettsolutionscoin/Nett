@@ -1,0 +1,10 @@
+# Example .htaccess for local SMTP environment variables
+# Copy this to `.htaccess` and fill in values for local testing. DO NOT commit real credentials.
+
+# SetEnv SMTP_HOST "smtp.gmail.com"
+# SetEnv SMTP_USERNAME "your-email@example.com"
+# SetEnv SMTP_PASSWORD "your-app-password"
+# SetEnv SMTP_PORT "587"
+# SetEnv SMTP_SECURE "tls"
+# SetEnv SMTP_FROM_EMAIL "no-reply@yourdomain.com"
+# SetEnv SMTP_FROM_NAME "Your Site Name"
