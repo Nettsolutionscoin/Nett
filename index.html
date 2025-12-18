@@ -56,28 +56,78 @@
           <ul>
             <li class="active"><a href="#intro">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#team">Team</a></li>
             <li class="drop-down">
-              <a href="">Drop Down</a>
+              <a href="#services">Services</a>
               <ul>
-                <li><a href="#">Drop Down 1</a></li>
                 <li class="drop-down">
-                  <a href="#">Drop Down 2</a>
+                  <a href="#">Web &amp; Mobile</a>
                   <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
+                    <li><a class="scrollto" href="#web">Web Development</a></li>
+                    <li><a class="scrollto" href="#mobile">Mobile Apps</a></li>
+                    <li><a class="scrollto" href="#uiux">UI/UX Design</a></li>
                   </ul>
                 </li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-                <li><a href="#">Drop Down 5</a></li>
+                <li class="drop-down">
+                  <a href="#">DevOps</a>
+                  <ul>
+                    <li>
+                      <a class="scrollto" href="#devops-cicd"
+                        >CI/CD &amp; Automation</a
+                      >
+                    </li>
+                    <li>
+                      <a class="scrollto" href="#devops-iac"
+                        >Infrastructure as Code</a
+                      >
+                    </li>
+                    <li>
+                      <a class="scrollto" href="#devops-monitoring"
+                        >Monitoring &amp; Observability</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="drop-down">
+                  <a href="#">Cloud</a>
+                  <ul>
+                    <li>
+                      <a class="scrollto" href="#cloud-migration"
+                        >Cloud Migration</a
+                      >
+                    </li>
+                    <li>
+                      <a class="scrollto" href="#cloud-managed"
+                        >Managed Services</a
+                      >
+                    </li>
+                    <li>
+                      <a class="scrollto" href="#cloud-security"
+                        >Security &amp; Cost Optimization</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="drop-down">
+                  <a href="#">AI Agents</a>
+                  <ul>
+                    <li>
+                      <a class="scrollto" href="#ai-chatbots">Chatbots</a>
+                    </li>
+                    <li>
+                      <a class="scrollto" href="#ai-rag">RAG (Retrieval)</a>
+                    </li>
+                    <li>
+                      <a class="scrollto" href="#ai-mlops"
+                        >MLOps &amp; Deployments</a
+                      >
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+
             <li><a href="#contact">Contact Us</a></li>
           </ul>
         </nav>
@@ -95,15 +145,36 @@
           <img src="img/intro-img.svg" alt="" class="img-fluid" />
         </div>
 
-        <div class="intro-info">
-          <h2>
-            Custom Web &<br /><span>Mobile App</span><br />Development Solutions
-          </h2>
+        <div class="intro-info text-center text-md-left">
+          <h1 class="display-4 font-weight-bold">Build. Scale. Automate.</h1>
+          <p class="lead mb-3">
+            Custom web & mobile apps, DevOps engineering, cloud architecture,
+            and AI agents — production-ready solutions that accelerate growth
+            and reduce costs.
+          </p>
+
           <div>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="#services" class="btn-services scrollto"
-              >Explore Our Services</a
+            <a href="#contact" class="btn-get-started scrollto"
+              >Get a Free Consultation</a
             >
+            <a href="#services" class="btn-services scrollto"
+              >Explore Services</a
+            >
+          </div>
+
+          <div
+            class="intro-services text-muted small mt-3 d-none d-md-inline-block wow fadeInUp"
+          >
+            <span class="mr-3"
+              ><i class="ion-ios-world-outline"></i> Web & Mobile</span
+            >
+            <span class="mr-3"
+              ><i class="ion-ios-gear-outline"></i> DevOps</span
+            >
+            <span class="mr-3"
+              ><i class="ion-ios-cloud-outline"></i> Cloud</span
+            >
+            <span><i class="ion-ios-rocket-outline"></i> AI Agents</span>
           </div>
         </div>
       </div>
@@ -119,19 +190,20 @@
           <header class="section-header">
             <h3>About Nett Solutions</h3>
             <p>
-              Delivering custom web and mobile app development since 2015. We
-              create innovative digital solutions that drive business growth and
-              user engagement.
+              Delivering custom web and mobile development, DevOps, cloud
+              engineering, and AI agent solutions since 2015 — building secure,
+              scalable systems and production-ready intelligence that drive
+              measurable business outcomes.
             </p>
           </header>
 
           <div class="row about-container">
             <div class="col-lg-6 content order-lg-1 order-2">
               <p>
-                Nett Solutions specializes in custom web development and mobile
-                app creation. We build scalable, user-friendly applications that
-                transform your business vision into reality and deliver
-                measurable results for your organization.
+                Nett Solutions specializes in full‑stack product delivery: web
+                and mobile applications, DevOps & cloud engineering, and AI
+                agents. We design, build and operate secure, scalable systems
+                that turn your ideas into measurable business value.
               </p>
 
               <div class="icon-box wow fadeInUp">
@@ -154,11 +226,21 @@
               </div>
 
               <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-                <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                <h4 class="title"><a href="">Performance Driven</a></h4>
+                <div class="icon"><i class="fa fa-cogs"></i></div>
+                <h4 class="title"><a href="">DevOps & Cloud</a></h4>
                 <p class="description">
-                  Fast-loading, optimized applications that improve user
-                  engagement, conversion rates, and overall business metrics.
+                  CI/CD, infrastructure as code, cloud migrations and managed
+                  operations to keep applications reliable, secure and cost
+                  effective.
+                </p>
+              </div>
+
+              <div class="icon-box wow fadeInUp" data-wow-delay="0.6s">
+                <div class="icon"><i class="fa fa-rocket"></i></div>
+                <h4 class="title"><a href="">AI &amp; Automation</a></h4>
+                <p class="description">
+                  AI agents, chatbots, RAG pipelines and MLOps to add
+                  intelligence and automation that deliver measurable outcomes.
                 </p>
               </div>
             </div>
@@ -226,8 +308,8 @@
           <header class="section-header">
             <h3>Our Services</h3>
             <p>
-              Complete development solutions from concept to deployment and
-              ongoing support.
+              Complete development solutions—Web, Mobile, Cloud, DevOps, and AI
+              agent development—from concept to deployment and ongoing support.
             </p>
           </header>
 
@@ -243,7 +325,9 @@
                     style="color: #ff689b"
                   ></i>
                 </div>
-                <h4 class="title"><a href="">Web Development</a></h4>
+                <h4 class="title">
+                  <a class="scrollto" href="#web">Web Development</a>
+                </h4>
                 <p class="description">
                   Responsive, scalable websites and web applications built with
                   modern frameworks. From corporate sites to complex SaaS
@@ -262,7 +346,9 @@
                     style="color: #e9bf06"
                   ></i>
                 </div>
-                <h4 class="title"><a href="">iOS & Android Apps</a></h4>
+                <h4 class="title">
+                  <a class="scrollto" href="#mobile">iOS &amp; Android Apps</a>
+                </h4>
                 <p class="description">
                   Native and cross-platform mobile applications for iOS and
                   Android. Beautiful UI/UX, powerful functionality, app store
@@ -280,7 +366,9 @@
                 <div class="icon">
                   <i class="ion-ios-paper-outline" style="color: #3fcdc7"></i>
                 </div>
-                <h4 class="title"><a href="">UI/UX Design</a></h4>
+                <h4 class="title">
+                  <a class="scrollto" href="#uiux">UI/UX Design</a>
+                </h4>
                 <p class="description">
                   User-centered design that makes your applications a pleasure
                   to use. Wireframes, prototypes, and pixel-perfect design
@@ -340,6 +428,205 @@
                   Strategic technology advice, architecture planning, and
                   digital transformation guidance. Expert consultants with 15+
                   years of development experience.
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="devops"
+              class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp"
+              data-wow-delay="0.3s"
+              data-wow-duration="1.4s"
+            >
+              <div class="box">
+                <div class="icon">
+                  <i class="ion-ios-gear-outline" style="color: #ff7a00"></i>
+                </div>
+                <h4 class="title">
+                  <a class="scrollto" href="#devops"
+                    >DevOps &amp; Automation Services</a
+                  >
+                </h4>
+                <p class="description">
+                  Automated CI/CD pipelines, container orchestration
+                  (Kubernetes), and infrastructure-as-code (Terraform). We
+                  implement observability, SRE practices and secure delivery
+                  workflows to reduce lead time and improve reliability.
+                </p>
+                <div class="text-center mt-2">
+                  <a href="#contact" class="readmore scrollto">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="cloud"
+              class="col-md-6 col-lg-5 wow bounceInUp"
+              data-wow-delay="0.3s"
+              data-wow-duration="1.4s"
+            >
+              <div class="box">
+                <div class="icon">
+                  <i class="ion-ios-cloud-outline" style="color: #00aaff"></i>
+                </div>
+                <h4 class="title">
+                  <a class="scrollto" href="#cloud"
+                    >Cloud Architecture &amp; Managed Services</a
+                  >
+                </h4>
+                <p class="description">
+                  Cloud strategy, migrations, and managed operations across AWS,
+                  Azure, and GCP. We deliver secure, scalable architectures with
+                  cost optimization and IaC-driven deployments.
+                </p>
+                <div class="text-center mt-2">
+                  <a href="#contact" class="readmore scrollto">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="ai-agent"
+              class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp"
+              data-wow-delay="0.4s"
+              data-wow-duration="1.4s"
+            >
+              <div class="box">
+                <div class="icon">
+                  <i class="ion-ios-rocket-outline" style="color: #6f42c1"></i>
+                </div>
+                <h4 class="title">
+                  <a class="scrollto" href="#ai-agent">AI Agents &amp; MLOps</a>
+                </h4>
+                <p class="description">
+                  Design and productionize AI agents: chatbots,
+                  retrieval-augmented generation, LLM integrations and MLOps
+                  pipelines for training, deployment and monitoring. We focus on
+                  safety, observability and measurable business outcomes.
+                </p>
+                <div class="text-center mt-2">
+                  <a href="#contact" class="readmore scrollto">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detailed service anchors -->
+          <div class="container mt-4" id="service-details">
+            <div class="row">
+              <div id="web" class="col-lg-6 mb-4">
+                <h4>Web Development</h4>
+                <p>
+                  Enterprise web apps, progressive web apps, and SaaS platforms
+                  with modern stacks and CI-driven delivery.
+                </p>
+                <ul>
+                  <li>Frontend: React, Vue, Angular</li>
+                  <li>Backend: Node, Python, Java, Go</li>
+                  <li>APIs, microservices, and secure integrations</li>
+                </ul>
+              </div>
+
+              <div id="mobile" class="col-lg-6 mb-4">
+                <h4>Mobile Apps</h4>
+                <p>
+                  Native and cross-platform mobile apps with focus on
+                  performance, accessibility, and app-store readiness.
+                </p>
+                <ul>
+                  <li>iOS (Swift), Android (Kotlin), Flutter, React Native</li>
+                  <li>App store submission and analytics</li>
+                  <li>Offline support and push notification strategies</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="uiux" class="col-lg-6 mb-4">
+                <h4>UI/UX Design</h4>
+                <p>
+                  Design systems, prototypes, and usability testing to create
+                  delightful experiences that increase engagement.
+                </p>
+              </div>
+
+              <div id="devops-cicd" class="col-lg-6 mb-4">
+                <h4>CI/CD &amp; Automation</h4>
+                <p>
+                  Automated build, test and deploy pipelines (GitHub Actions,
+                  GitLab CI, Jenkins) to accelerate delivery with safety gates.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="devops-iac" class="col-lg-6 mb-4">
+                <h4>Infrastructure as Code</h4>
+                <p>
+                  Reusable IaC modules (Terraform, CloudFormation) for
+                  repeatable, auditable infrastructure.
+                </p>
+              </div>
+
+              <div id="devops-monitoring" class="col-lg-6 mb-4">
+                <h4>Monitoring &amp; Observability</h4>
+                <p>
+                  Prometheus, Grafana, logs and tracing setups for SLO-driven
+                  reliability and incident response.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="cloud-migration" class="col-lg-6 mb-4">
+                <h4>Cloud Migration</h4>
+                <p>
+                  Lift-and-shift or re-architect migrations with a focus on risk
+                  reduction and cost optimisation.
+                </p>
+              </div>
+
+              <div id="cloud-managed" class="col-lg-6 mb-4">
+                <h4>Managed Cloud Services</h4>
+                <p>
+                  24/7 managed operations, backups, security patching and cost
+                  monitoring across AWS, Azure and GCP.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="cloud-security" class="col-lg-6 mb-4">
+                <h4>Cloud Security &amp; Cost Optimization</h4>
+                <p>
+                  Identity, VPC architecture, encryption and rightsizing to keep
+                  systems secure and affordable.
+                </p>
+              </div>
+
+              <div id="ai-chatbots" class="col-lg-6 mb-4">
+                <h4>AI &amp; Chatbots</h4>
+                <p>
+                  Conversational agents, custom prompt strategies, and secure
+                  integration with your data sources.
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="ai-rag" class="col-lg-6 mb-4">
+                <h4>RAG &amp; Retrieval</h4>
+                <p>
+                  Vector search, knowledge augmentation and retrieval pipelines
+                  for accurate, up-to-date responses.
+                </p>
+              </div>
+
+              <div id="ai-mlops" class="col-lg-6 mb-4">
+                <h4>MLOps &amp; Deployments</h4>
+                <p>
+                  Training pipelines, model versioning, monitoring, and safe
+                  rollout strategies.
                 </p>
               </div>
             </div>
@@ -946,7 +1233,9 @@
             <div class="col-lg-6">
               <div class="map mb-4 mb-lg-0">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3887.023176641506!2d80.2207!3d13.0499!3m2!1i1400!2i900!4f13.1!3m3!1m2!1s0x3a526f1234567890%3A0xabcdef1234567890!2sAshok+Pillar%2C+Chennai!5e0!3m2!1sen!2sin!4v1539943755621"
+                  src="https://www.google.com/maps?q=Templetown,+T.G+Pudur+Road,+Karamadai,+Coimbatore&output=embed"
+                  allowfullscreen
+                  loading="lazy"
                 ></iframe>
               </div>
             </div>
@@ -955,15 +1244,18 @@
               <div class="row">
                 <div class="col-md-5 info">
                   <i class="ion-ios-location-outline"></i>
-                  <p>Ashok Pillar, Chennai, Tamil Nadu 600010, India</p>
+                  <p>
+                    Templetown, T.G. Pudur Road, Karamadai, Coimbatore, Tamil
+                    Nadu, India
+                  </p>
                 </div>
                 <div class="col-md-4 info">
                   <i class="ion-ios-email-outline"></i>
-                  <p>hello@nettsolutions.com</p>
+                  <p>nettcoin@gmail.com</p>
                 </div>
                 <div class="col-md-3 info">
                   <i class="ion-ios-telephone-outline"></i>
-                  <p>+1 (408) 555-0123</p>
+                  <p>+91 98765 43210</p>
                 </div>
               </div>
 
@@ -972,7 +1264,14 @@
                   Your message has been sent. Thank you!
                 </div>
                 <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="contactForm">
+                <!-- Optional reCAPTCHA: add this script in <head> and your site key in config.php to enable -->
+                <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+                <form
+                  action="contactform/contactform.php"
+                  method="post"
+                  role="form"
+                  class="contactForm"
+                >
                   <div class="form-row">
                     <div class="form-group col-lg-6">
                       <input
@@ -1056,8 +1355,14 @@
               <h4>Useful Links</h4>
               <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
+                <li><a class="scrollto" href="#about">About us</a></li>
+                <li><a class="scrollto" href="#web">Web Development</a></li>
+                <li><a class="scrollto" href="#mobile">Mobile Apps</a></li>
+                <li><a class="scrollto" href="#devops-cicd">DevOps</a></li>
+                <li>
+                  <a class="scrollto" href="#cloud-migration">Cloud Services</a>
+                </li>
+                <li><a class="scrollto" href="#ai-chatbots">AI Agents</a></li>
                 <li><a href="#">Terms of service</a></li>
                 <li><a href="#">Privacy policy</a></li>
               </ul>
@@ -1066,11 +1371,11 @@
             <div class="col-lg-3 col-md-6 footer-contact">
               <h4>Contact Us</h4>
               <p>
-                456 Tech Boulevard <br />
-                San Jose, CA 95110<br />
-                United States <br />
-                <strong>Phone:</strong> +1 (408) 555-0123<br />
-                <strong>Email:</strong> hello@nettsolutions.com<br />
+                Templetown, T.G. Pudur Road, Karamadai<br />
+                Coimbatore, Tamil Nadu<br />
+                India<br />
+                <strong>Phone:</strong> +91 98765 43210<br />
+                <strong>Email:</strong> nettcoin@gmail.com<br />
               </p>
 
               <div class="social-links">
@@ -1089,15 +1394,18 @@
             <div class="col-lg-3 col-md-6 footer-newsletter">
               <h4>Our Newsletter</h4>
               <p>
-                Tamen quem nulla quae legam multos aute sint culpa legam noster
-                magna veniam enim veniam illum dolore legam minim quorum culpa
-                amet magna export quem marada parida nodela caramase seza.
+                Join our newsletter for monthly insights on Web & Mobile,
+                DevOps, Cloud, and AI — case studies, technical tips, and
+                exclusive offers. No spam; unsubscribe anytime.
               </p>
               <form action="" method="post">
-                <input type="email" name="email" /><input
-                  type="submit"
-                  value="Subscribe"
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  required
                 />
+                <input type="submit" value="Subscribe" />
               </form>
             </div>
           </div>

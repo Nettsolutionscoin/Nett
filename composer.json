@@ -1,0 +1,7 @@
+{
+  "name": "nettsolutionscoin/nett",
+  "description": "Nett Solutions website",
+  "require": {
+    "phpmailer/phpmailer": "^6.8"
+  }
+}
