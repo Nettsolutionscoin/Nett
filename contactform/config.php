@@ -13,7 +13,7 @@ return [
     'smtp' => [
         'host' => 'smtp.gmail.com', // e.g. 'smtp.gmail.com' or 'sandbox.smtp.mailtrap.io'
         'username' => 'nettcoin@gmail.com', // your SMTP username
-        'password' => '', // your SMTP password (use App Password for Gmail)
+        'password' => 'gflrogxwyjyswtic', // your SMTP password (use App Password for Gmail)
         'port' => 587,
         'secure' => 'tls', // 'ssl' or 'tls'
         'from_email' => 'nettcoin@gmail.com', // The email address shown as the sender
