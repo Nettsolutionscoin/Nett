@@ -1,0 +1,6 @@
+vendor/
+composer.phar
+composer-setup.php
+contactform/mail.log
+.DS_Store
+*.swp

@@ -11,12 +11,12 @@ return [
 
     // SMTP configuration (used when PHPMailer is enabled and host is set)
     'smtp' => [
-        'host' => '', // e.g. 'smtp.gmail.com'
-        'username' => '',
-        'password' => '',
+        'host' => 'smtp.gmail.com', // e.g. 'smtp.gmail.com' or 'sandbox.smtp.mailtrap.io'
+        'username' => 'nettcoin@gmail.com', // your SMTP username
+        'password' => '', // your SMTP password (use App Password for Gmail)
         'port' => 587,
         'secure' => 'tls', // 'ssl' or 'tls'
-        'from_email' => 'no-reply@yourdomain.com',
+        'from_email' => 'nettcoin@gmail.com', // The email address shown as the sender
         'from_name' => 'Nett Solutions'
     ],
 

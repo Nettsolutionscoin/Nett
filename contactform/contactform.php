@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $config = include __DIR__ . '/config.php';
 
 // Rate limiting by session
-$limit = isset($config['rate_limit_seconds']) ? (int)$config['rate_limit_seconds'] : 30;
+$limit = isset($config['rate_limit_seconds']) ? (int) $config['rate_limit_seconds'] : 30;
 if (isset($_SESSION['last_submit']) && (time() - $_SESSION['last_submit']) < $limit) {
     $wait = $limit - (time() - $_SESSION['last_submit']);
     echo 'Please wait ' . $wait . ' seconds before sending again.';
@@ -38,7 +38,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Prevent header injection
-function has_header_injection($str) {
+function has_header_injection($str)
+{
     return preg_match("/\r|\n/", $str);
 }
 if (has_header_injection($name) || has_header_injection($email) || has_header_injection($subject)) {
@@ -105,19 +106,19 @@ if (!empty($config['use_phpmailer']) && $autoload) {
         $mail->addAddress($to);
 
         $mail->Subject = $subject_mail;
-        $mail->Body    = $body;
+        $mail->Body = $body;
         $mail->AltBody = $body;
 
         $sent = $mail->send();
     } catch (Exception $e) {
         // fallback to mail(); also capture the exception message for logging
         $sent = false;
-        $errorMsg = isset($e->getMessage) ? $e->getMessage() : (string)$e;
+        $errorMsg = $e->getMessage();
     }
 }
 
 if (!$sent) {
-    $headers  = "From: " . $name . " <" . $email . ">\r\n";
+    $headers = "From: " . $name . " <" . $email . ">\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
@@ -126,7 +127,7 @@ if (!$sent) {
 }
 
 // Log the attempt (sanitized)
-$logEntry = date('Y-m-d H:i:s') . " | IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . " | From: " . filter_var($email, FILTER_SANITIZE_EMAIL) . " | Subject: " . substr(preg_replace('/\s+/', ' ', $subject),0,100) . " | MessageLen: " . strlen($message) . " | Result: " . ($sent ? 'OK' : 'FAILED') . "\n";
+$logEntry = date('Y-m-d H:i:s') . " | IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . " | From: " . filter_var($email, FILTER_SANITIZE_EMAIL) . " | Subject: " . substr(preg_replace('/\s+/', ' ', $subject), 0, 100) . " | MessageLen: " . strlen($message) . " | Result: " . ($sent ? 'OK' : 'FAILED') . "\n";
 @file_put_contents(__DIR__ . '/mail.log', $logEntry, FILE_APPEND | LOCK_EX);
 
 if ($sent) {
