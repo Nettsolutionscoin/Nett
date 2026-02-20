@@ -1,6 +1,14 @@
+# Local files that contain secrets or machine-specific config
+.htaccess
+.env
+
+# Optional: ignore local mail logs
+contactform/mail.log
+
+# Ignore Composer vendor directory (re-install with composer install)
 vendor/
 composer.phar
 composer-setup.php
-contactform/mail.log
 .DS_Store
 *.swp
+
