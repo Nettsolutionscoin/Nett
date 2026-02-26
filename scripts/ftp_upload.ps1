@@ -1,5 +1,5 @@
 Param(
-    [string]$Host = 'ftpupload.net',
+    [string]$FtpHost = 'ftpupload.net',
     [int]$Port = 21,
     [string]$User = 'if0_40708403',
     [string]$Pass = 'eiL7I99TyWVFU',
@@ -29,32 +29,34 @@ try {
     Write-Log "Attempting to rename remote '$RemoteRoot' to '/$backupName'..."
     # Remove leading slash for the FTP path in the request uri when working from root
     $rootName = [System.IO.Path]::GetFileName($RemoteRoot.TrimEnd('/'))
-    $uri = "ftp://$Host/$rootName"
+    $uri = "ftp://$FtpHost/$rootName"
     $req = New-FtpRequest $uri ([System.Net.WebRequestMethods+Ftp]::Rename)
     $req.RenameTo = $backupName
     $res = $req.GetResponse()
     $res.Close()
     Write-Log "Remote '$RemoteRoot' renamed to '/$backupName'"
-} catch {
+}
+catch {
     Write-Log "Rename failed or remote path does not exist (continuing): $_"
 }
 
 # 2) Create new /htdocs
 try {
     Write-Log "Creating new remote '$RemoteRoot'..."
-    $uriCreate = "ftp://$Host$RemoteRoot"
+    $uriCreate = "ftp://$FtpHost$RemoteRoot"
     $req = New-FtpRequest $uriCreate ([System.Net.WebRequestMethods+Ftp]::MakeDirectory)
     $res = $req.GetResponse()
     $res.Close()
     Write-Log "Created $RemoteRoot"
-} catch {
+}
+catch {
     Write-Log "MakeDirectory failed (maybe already exists): $_"
 }
 
 # 3) Upload files recursively
 $skip = @('.git', '.htaccess', '.gitignore')
 $local = Get-Item -Path $LocalRoot
-Write-Log "Uploading files from $LocalRoot to ftp://$Host$RemoteRoot ..."
+Write-Log "Uploading files from $LocalRoot to ftp://$FtpHost$RemoteRoot ..."
 
 function Ensure-RemoteDir {
     param($relativePath)
@@ -63,13 +65,14 @@ function Ensure-RemoteDir {
     foreach ($p in $parts) {
         if ([string]::IsNullOrEmpty($p)) { continue }
         $path = "$path/$p"
-        $uriDir = "ftp://$Host$RemoteRoot$path"
+        $uriDir = "ftp://$FtpHost$RemoteRoot$path"
         try {
             $req = New-FtpRequest $uriDir ([System.Net.WebRequestMethods+Ftp]::MakeDirectory)
             $res = $req.GetResponse()
             $res.Close()
             Write-Log "Created remote dir: $path"
-        } catch {
+        }
+        catch {
             # directory might already exist
         }
     }
@@ -77,23 +80,23 @@ function Ensure-RemoteDir {
 
 function Upload-File {
     param($localFile, $remoteFilePath)
-    $uri = "ftp://$Host$RemoteFilePath"
+    $uri = "ftp://$FtpHost$remoteFilePath"
 }
 
 # Actually upload files
 $items = Get-ChildItem -Path $LocalRoot -Recurse -File
 foreach ($f in $items) {
-    $rel = $f.FullName.Substring($LocalRoot.Length).TrimStart('\','/') -replace '\\','/'
+    $rel = $f.FullName.Substring($LocalRoot.Length).TrimStart('\', '/') -replace '\\', '/'
     # Skip top-level .git and .htaccess
     $top = $rel.Split('/')[0]
     if ($skip -contains $top) { continue }
     if ($top -eq '') { $rel = $f.Name }
     if ($rel -eq 'vendor' -or $rel.StartsWith('vendor/')) { }
     # Create remote directories if needed
-    $dir = [System.IO.Path]::GetDirectoryName($rel) -replace '\\','/'
+    $dir = [System.IO.Path]::GetDirectoryName($rel) -replace '\\', '/'
     if ($dir -ne '') { Ensure-RemoteDir $dir }
-    $remotePath = "$RemoteRoot/$rel" -replace '^/','/'
-    $uri = "ftp://$Host$remotePath"
+    $remotePath = "$RemoteRoot/$rel" -replace '^/', '/'
+    $uri = "ftp://$FtpHost$remotePath"
     try {
         Write-Log "Uploading $rel ..."
         $req = [System.Net.FtpWebRequest]::Create($uri)
@@ -107,14 +110,15 @@ foreach ($f in $items) {
         $rs.Close()
         $res = $req.GetResponse()
         $res.Close()
-    } catch {
-        Write-Log "Upload failed for $rel: $_"
+    }
+    catch {
+        Write-Log "Upload failed for ${rel}: $_"
     }
 }
 
 # 4) Ensure contactform/mail.log exists and is writable
 try {
-    $remoteMailLog = "ftp://$Host$RemoteRoot/contactform/mail.log"
+    $remoteMailLog = "ftp://$FtpHost$RemoteRoot/contactform/mail.log"
     Write-Log "Creating remote contactform/mail.log"
     $req = New-FtpRequest $remoteMailLog ([System.Net.WebRequestMethods+Ftp]::UploadFile)
     $req.ContentLength = 0
@@ -123,7 +127,8 @@ try {
     $res = $req.GetResponse()
     $res.Close()
     Write-Log "Created contactform/mail.log"
-} catch {
+}
+catch {
     Write-Log "Failed to create mail.log: $_"
 }
 
